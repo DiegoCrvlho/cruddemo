@@ -1,15 +1,16 @@
 class OffshoreemployeesController < ApplicationController
 
   def new
-    @offshoreemployee = offshoreemployee.new
+    @offshoreemployee = Offshoreemployee.new
   end
 
   def create
-    @offshoreemployee = offshoreemployee.new(offshoreemployee_params)
+    @offshoreemployee = Offshoreemployee.new(offshoreemployee_params)
       if @offshoreemployee.save 
         redirect_to new_offshoreemployee_path
       else 
         render :new, status: :unprocessable_entity
+      end
   end
 
   private
